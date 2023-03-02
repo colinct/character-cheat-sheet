@@ -1,7 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import { Counter } from "./features/counter/Counter";
+import "./App.css";
+import { MyCharacter } from "./app/MyCharacter";
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
           </a>
         </span>
       </header>
+      <MyCharacter apiKey="" realm="Zul'Jin" name="Twinkletoezz" />
     </div>
   );
 }
