@@ -2,20 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { getCharacterInfo } from "./wowApi";
 
-interface MyCharacter {
+interface MyCharacterProps {
+  apiKey: string;
   realm: string;
   name: string;
 }
 
-export const MyCharacter = ({
-  apiKey,
-  realm,
-  name,
-}: {
-  apiKey: string;
-  realm: string;
-  name: string;
-}) => {
+export const MyCharacter = ({ apiKey, realm, name }: MyCharacterProps) => {
   const [character, setCharacter] = useState<any>();
 
   useEffect(() => {
