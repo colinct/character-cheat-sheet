@@ -1,11 +1,11 @@
 import axios from "axios";
 
 export const getCharacterInfo = async (
-  apiKey: string,
   realm: string,
   name: string
 ) => {
-  const url = `https://us.api.blizzard.com/wow/character/${realm}/${name}?locale=en_US&apikey=${apiKey}`;
+  const clientSecret = process.env.client_secret
+  const url = `https://us.api.blizzard.com/wow/character/${realm}/${name}?locale=en_US&apikey=${clientSecret}`;
   const response = await axios.get(url);
   return response.data;
 };
