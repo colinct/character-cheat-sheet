@@ -35,7 +35,6 @@ async function getCharacter(
   const tokenEndpoint = `https://us.api.blizzard.com/profile/wow/character/${realm}/${characterName}/encounters/dungeons?namespace=profile-us&locale=en_US&access_token=${token}`;
   const headers = {
     Authorization: `Bearer ${token}`,
-    // "Content-Type": "application/x-www-form-urlencoded",
   };
 
   try {
