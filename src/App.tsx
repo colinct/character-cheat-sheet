@@ -3,10 +3,6 @@ import "./App.css";
 import { MyCharacter } from "./app/MyCharacter";
 import { getBattleNetAccessToken } from "./app/apiCalls";
 
-// curl -u {client_id}:{client_secret} -d grant_type=client_credentials https://oauth.battle.net/token
-
-// curl -H "Authorization: Bearer {access_token}" https://us.api.blizzard.com/data/wow/token/?namespace=dynamic-us
-
 function App() {
   const [token, setToken] = useState("");
 
