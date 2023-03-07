@@ -26,7 +26,6 @@ export const MyCharacter = ({
 
   return <div>{character ? <h1>{character.name}</h1> : <p>Loading...</p>}</div>;
 };
-// https://us.api.blizzard.com/profile/wow/character/Zul'Jin/Twinkletoezz/encounters/dungeons?namespace=profile-us&locale=en_US&access_token=USh98GawqORQiw8Yp64He8AEdp7Bbk1fmp
 
 async function getCharacter(
   token: string,
