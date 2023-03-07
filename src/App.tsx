@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div className="App">
-      <MyCharacter token={token} realm="zuljin" characterName="Twinkletoezz" />
+      <MyCharacter token={token} realm="zuljin" characterName="twinkletoezz" />
     </div>
   );
 }
