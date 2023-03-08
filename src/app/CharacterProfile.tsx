@@ -23,14 +23,9 @@ export const CharacterProfile = ({
         realm
       );
       setCharacter(characterInfo);
-      console.log(character);
     };
     if (token) fetchCharacter();
   }, [token, characterName, realm]);
-
-  useEffect(() => {
-    console.log(character);
-  }, [character]);
 
   return <div>{character ? <h1>{character.name}</h1> : <p>Loading...</p>}</div>;
 };
