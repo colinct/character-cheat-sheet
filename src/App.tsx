@@ -5,8 +5,8 @@ import { getBattleNetAccessToken } from "./app/apiCalls";
 
 function App() {
   const [token, setToken] = useState("");
-  const realm = "zuljin";
-  const characterName = "twinkletoezz";
+  const realm = "aegwynn";
+  const characterName = "gravityfalls";
 
   useEffect(() => {
     const getToken = async () => {
@@ -20,13 +20,15 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <CharacterProfile
-        token={token}
-        realm={realm}
-        characterName={characterName}
-      />
-    </div>
+    <>
+      <div className="App">
+        <CharacterProfile
+          token={token}
+          realm={realm}
+          characterName={characterName}
+        />
+      </div>
+    </>
   );
 }
 

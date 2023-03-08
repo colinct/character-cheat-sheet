@@ -27,5 +27,20 @@ export const CharacterProfile = ({
     if (token) fetchCharacter();
   }, [token, characterName, realm]);
 
-  return <div>{character ? <h1>{character.name}</h1> : <p>Loading...</p>}</div>;
+  useEffect(() => {
+    console.log(character);
+  }, [character]);
+
+  return (
+    <div>
+      {character ? (
+        <>
+          <h1>{character.name}</h1>
+          <h1>{character.equipped_item_level}</h1>
+        </>
+      ) : (
+        <p>Loading...</p>
+      )}
+    </div>
+  );
 };
