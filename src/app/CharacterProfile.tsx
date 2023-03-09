@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { getCharacterProfile } from "./apiCalls";
 
 interface MyCharacterProps {
@@ -27,16 +26,13 @@ export const CharacterProfile = ({
     if (token) fetchCharacter();
   }, [token, characterName, realm]);
 
-  useEffect(() => {
-    console.log(character);
-  }, [character]);
-
   return (
     <div>
       {character ? (
         <>
           <h1>{character.name}</h1>
           <h1>{character.equipped_item_level}</h1>
+
         </>
       ) : (
         <p>Loading...</p>
