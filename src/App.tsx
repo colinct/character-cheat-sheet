@@ -26,8 +26,7 @@ function App() {
         realm={realm}
         characterName={characterName}
       />
-      <CharacterPortrait token={token} characterName={characterName} realm={realm} />
-
+      {/* <CharacterPortrait token={token} characterName={characterName} realm={realm} /> */}
     </div>
   );
 }
