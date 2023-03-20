@@ -3,6 +3,7 @@ import "./App.css";
 import { CharacterProfile } from "./app/CharacterProfile";
 import { getBattleNetAccessToken } from "./app/apiCalls";
 import { CharacterPortrait } from "./app/CharacterPortrait";
+import { Form } from "./app/Organisms/Form";
 
 function App() {
   const [token, setToken] = useState("");
@@ -20,14 +21,17 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <CharacterProfile
-        token={token}
-        realm={realm}
-        characterName={characterName}
-      />
-      {/* <CharacterPortrait token={token} characterName={characterName} realm={realm} /> */}
-    </div>
+    <>
+      <Form />
+      <div className="App">
+        <CharacterProfile
+          token={token}
+          realm={realm}
+          characterName={characterName}
+        />
+        {/* <CharacterPortrait token={token} characterName={characterName} realm={realm} /> */}
+      </div>
+    </>
   );
 }
 
