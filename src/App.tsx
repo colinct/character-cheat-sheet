@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./App.css";
 import { CharacterProfile } from "./app/CharacterProfile";
 import { getBattleNetAccessToken } from "./app/apiCalls";
 import { CharacterPortrait } from "./app/CharacterPortrait";
