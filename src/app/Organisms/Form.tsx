@@ -2,7 +2,16 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 
-const Input = styled.input``;
+const Input = styled.input`
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+
+  &:focus {
+    outline: none;
+  }
+`;
 
 interface FormProps {}
 
@@ -26,13 +35,13 @@ export const Form = () => {
           console.log({ data });
         })}
       >
-        <input
+        <Input
           {...register("characterName", { required: "This field is required" })}
           type="text"
           name="characterName"
           placeholder="Character Name"
         />
-        <input
+        <Input
           {...register("realmSlug", { required: "This field is required" })}
           type="text"
           name="realmSlug"
