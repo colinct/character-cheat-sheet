@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getCharacterProfile } from "./apiCalls";
+import { getCharacterProfile } from "../apiCalls";
 
 interface MyCharacterProps {
   token: string;

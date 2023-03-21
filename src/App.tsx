@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { CharacterProfile } from "./app/CharacterProfile";
+import { CharacterProfile } from "./app/Organisms/CharacterProfile";
 import { getBattleNetAccessToken } from "./app/apiCalls";
 // import { CharacterPortrait } from "./app/CharacterPortrait";
 import { Form } from "./app/Organisms/Form";
