@@ -2,6 +2,11 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
 const Input = styled.input`
   border: 1px solid black;
   border-radius: 5px;
@@ -30,7 +35,7 @@ export const Form = () => {
 
   return (
     <div className="form">
-      <form
+      <StyledForm
         onSubmit={handleSubmit((data) => {
           console.log({ data });
         })}
@@ -48,7 +53,7 @@ export const Form = () => {
           placeholder="Realm Name"
         />
         <input type="submit" />
-      </form>
+      </StyledForm>
     </div>
   );
 };
