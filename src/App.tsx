@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { CharacterProfile } from "./app/CharacterProfile";
 import { getBattleNetAccessToken } from "./app/apiCalls";
-import { CharacterPortrait } from "./app/CharacterPortrait";
+// import { CharacterPortrait } from "./app/CharacterPortrait";
 import { Form } from "./app/Organisms/Form";
 
 function App() {
   const [token, setToken] = useState("");
-  const realm = "aegwynn";
-  const characterName = "gravityfalls";
+  const [characterData, setCharacterData] = useState({
+    characterName: "",
+    realmSlug: "",
+  });
 
   useEffect(() => {
     const getToken = async () => {
@@ -19,17 +21,23 @@ function App() {
     getToken();
   }, []);
 
+  const handleFormSubmit = (data: any) => {
+    setCharacterData(data);
+  };
+
   return (
     <>
-      <Form />
-      <div className="App">
-        <CharacterProfile
-          token={token}
-          realm={realm}
-          characterName={characterName}
-        />
-        {/* <CharacterPortrait token={token} characterName={characterName} realm={realm} /> */}
-      </div>
+      <Form onSubmit={handleFormSubmit} />
+      {characterData && (
+        <div className="App">
+          <CharacterProfile
+            token={token}
+            name={characterData.characterName}
+            realm={characterData.realmSlug}
+          />
+          {/* <CharacterPortrait token={token} characterName={characterName} realm={realm} /> */}
+        </div>
+      )}
     </>
   );
 }

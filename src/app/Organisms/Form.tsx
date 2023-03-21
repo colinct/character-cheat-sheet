@@ -1,5 +1,5 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import styled from "styled-components";
 
 const StyledForm = styled.form`
@@ -18,28 +18,29 @@ const Input = styled.input`
   }
 `;
 
-interface FormProps {}
+interface FormInputProps {
+  characterName: string;
+  realmSlug: string;
+}
 
-export const Form = () => {
+interface SubmitProps {
+  onSubmit: SubmitHandler<FormInputProps>;
+}
+
+export const Form = ({ onSubmit }: SubmitProps) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    defaultValues: {
-      characterName: "",
-      realmSlug: "",
-    },
-  });
-  console.log({ errors });
+  } = useForm<FormInputProps>();
+
+  const onSubmitHandler = (data: FormInputProps) => {
+    onSubmit(data);
+  };
 
   return (
     <div className="form">
-      <StyledForm
-        onSubmit={handleSubmit((data) => {
-          console.log({ data });
-        })}
-      >
+      <StyledForm onSubmit={handleSubmit(onSubmitHandler)}>
         <Input
           {...register("characterName", { required: "This field is required" })}
           type="text"
