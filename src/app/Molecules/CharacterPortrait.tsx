@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getCharacterPortrait } from "./apiCalls";
+import { getCharacterPortrait } from "../apiCalls";
 
 interface CharacterPortraitProps {
   token: string;
