@@ -38,6 +38,8 @@ export const Form = ({ onSubmit }: SubmitProps) => {
     onSubmit(data);
   };
 
+  console.log(errors);
+
   return (
     <div className="form">
       <StyledForm onSubmit={handleSubmit(onSubmitHandler)}>

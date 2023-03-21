@@ -7,8 +7,8 @@ import { Form } from "./app/Organisms/Form";
 function App() {
   const [token, setToken] = useState("");
   const [characterData, setCharacterData] = useState({
-    characterName: "",
-    realmSlug: "",
+    name: "",
+    realm: "",
   });
 
   useEffect(() => {
@@ -28,8 +28,8 @@ function App() {
       .replace(/ /g, "")
       .toLowerCase();
     setCharacterData({
-      characterName: lowercaseName,
-      realmSlug: correctedRealm,
+      name: lowercaseName,
+      realm: correctedRealm,
     });
   };
 
@@ -40,8 +40,8 @@ function App() {
         <div className="App">
           <CharacterProfile
             token={token}
-            name={characterData.characterName}
-            realm={characterData.realmSlug}
+            name={characterData.name}
+            realm={characterData.realm}
           />
           {/* <CharacterPortrait token={token} characterName={characterName} realm={realm} /> */}
         </div>
