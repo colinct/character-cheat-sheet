@@ -42,7 +42,9 @@ export const Form = ({ onSubmit }: SubmitProps) => {
     <div className="form">
       <StyledForm onSubmit={handleSubmit(onSubmitHandler)}>
         <Input
-          {...register("characterName", { required: "This field is required" })}
+          {...register("characterName", {
+            required: "This field is required",
+          })}
           type="text"
           name="characterName"
           placeholder="Character Name"

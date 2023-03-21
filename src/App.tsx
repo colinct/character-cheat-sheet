@@ -22,7 +22,15 @@ function App() {
   }, []);
 
   const handleFormSubmit = (data: any) => {
-    setCharacterData(data);
+    const lowercaseName = data.characterName.toLowerCase();
+    const correctedRealm = data.realmSlug
+      .replace(/'/g, "")
+      .replace(/ /g, "")
+      .toLowerCase();
+    setCharacterData({
+      characterName: lowercaseName,
+      realmSlug: correctedRealm,
+    });
   };
 
   return (
