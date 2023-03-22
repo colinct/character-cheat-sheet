@@ -1,10 +1,15 @@
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import styled from "styled-components";
+import CancelButton from "../Atoms/ResetButton";
+import SubmitButton from "../Atoms/SubmitButton";
 
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
 `;
 
 const Input = styled.input`
@@ -16,6 +21,10 @@ const Input = styled.input`
   &:focus {
     outline: none;
   }
+`;
+
+const Buttons = styled.div`
+  display: flex;
 `;
 
 interface FormInputProps {
@@ -43,6 +52,7 @@ const Form = ({ onSubmit }: SubmitProps) => {
   return (
     <div className="form">
       <StyledForm onSubmit={handleSubmit(onSubmitHandler)}>
+        <h1>Search your Character</h1>
         <Input
           {...register("characterName", {
             required: "This field is required",
@@ -57,7 +67,10 @@ const Form = ({ onSubmit }: SubmitProps) => {
           name="realmSlug"
           placeholder="Realm Name"
         />
-        <input type="submit" />
+        <Buttons>
+          <CancelButton />
+          <SubmitButton />
+        </Buttons>
       </StyledForm>
     </div>
   );

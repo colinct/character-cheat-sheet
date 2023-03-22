@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 import { CharacterProfile } from "./app/Organisms/CharacterProfile";
 import { getBattleNetAccessToken } from "./app/apiCalls";
 // import { CharacterPortrait } from "./app/CharacterPortrait";
 import Form from "./app/Organisms/Form";
 import Modal from "./app/Molecules/Modal";
+
+const StyledApp = styled.div`
+  margin: 0;
+  padding: 0;
+`;
 
 function App() {
   const [token, setToken] = useState("");
@@ -36,8 +42,15 @@ function App() {
   };
 
   return (
-    <>
-      <Modal children={<Form onSubmit={handleFormSubmit} />}></Modal>
+    <div>
+      <Modal
+        isOpen={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+      >
+        <Form onSubmit={handleFormSubmit} />
+      </Modal>
 
       {characterData && (
         <div className="App">
@@ -49,7 +62,7 @@ function App() {
           {/* <CharacterPortrait token={token} characterName={characterName} realm={realm} /> */}
         </div>
       )}
-    </>
+    </div>
   );
 }
 
