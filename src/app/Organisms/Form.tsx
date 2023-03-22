@@ -6,30 +6,69 @@ import SubmitButton from "../Atoms/SubmitButton";
 
 const StyledForm = styled.form`
   display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid black;
+  border-radius: 5px;
+  background-color: grey;
+  width: 350px;
+  padding: 10px;
+
+  &: hover {
+    caret-color: white;
+  }
+`;
+
+const StyledHeader = styled.h1`
+  color: white;
+  font-size: 2rem;
+  font-weight: 500;
+`;
+
+const InputRow = styled.div`
+  display: flex;
+  justify-content: flex;
 `;
 
 const Input = styled.input`
-  border: 1px solid black;
-  border-radius: 5px;
+  border: 1px solid white;
+  border-radius: 3px;
   padding: 5px;
   margin: 5px;
+  background-color: grey;
+  color: white;
+  width: 100%;
+  max-width: 93.5%;
+  z-index: -1;
+
+  ::placeholder {
+    color: white;
+  }
 
   &:focus {
     outline: none;
   }
 `;
 
+const InputRegion = styled(Input)`
+  width: 50px;
+`;
+
 const Buttons = styled.div`
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
 `;
 
 interface FormInputProps {
   characterName: string;
   realmSlug: string;
+  region: string;
+  class: string;
+  race: string;
 }
 
 interface SubmitProps {
@@ -52,7 +91,7 @@ const Form = ({ onSubmit }: SubmitProps) => {
   return (
     <div className="form">
       <StyledForm onSubmit={handleSubmit(onSubmitHandler)}>
-        <h1>Search your Character</h1>
+        <StyledHeader>Search Your Character</StyledHeader>
         <Input
           {...register("characterName", {
             required: "This field is required",
@@ -61,11 +100,31 @@ const Form = ({ onSubmit }: SubmitProps) => {
           name="characterName"
           placeholder="Character Name"
         />
+        <InputRow>
+          <InputRegion
+            {...register("region", { required: false })}
+            type="text"
+            name="region"
+            placeholder="Region"
+          />
+          <Input
+            {...register("realmSlug", { required: "This field is required" })}
+            type="text"
+            name="realmSlug"
+            placeholder="Realm Name"
+          />
+        </InputRow>
         <Input
-          {...register("realmSlug", { required: "This field is required" })}
+          {...register("class", { required: false })}
           type="text"
-          name="realmSlug"
-          placeholder="Realm Name"
+          name="class"
+          placeholder="Character Class"
+        />
+        <Input
+          {...register("race", { required: false })}
+          type="text"
+          name="race"
+          placeholder="Character Race"
         />
         <Buttons>
           <CancelButton />

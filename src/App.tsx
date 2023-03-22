@@ -1,19 +1,12 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import { CharacterProfile } from "./app/Organisms/CharacterProfile";
 import { getBattleNetAccessToken } from "./app/apiCalls";
 // import { CharacterPortrait } from "./app/CharacterPortrait";
 import Form from "./app/Organisms/Form";
-import Modal from "./app/Molecules/Modal";
-
-const StyledApp = styled.div`
-  margin: 0;
-  padding: 0;
-`;
 
 function App() {
   const [token, setToken] = useState("");
-  const [open, setOpen] = useState(true);
+  const [closeForm, setCloseForm] = useState(true);
   const [characterData, setCharacterData] = useState({
     name: "",
     realm: "",
@@ -39,18 +32,12 @@ function App() {
       name: lowercaseName,
       realm: correctedRealm,
     });
+    setCloseForm(false);
   };
 
   return (
     <div>
-      <Modal
-        isOpen={open}
-        onClose={() => {
-          setOpen(false);
-        }}
-      >
-        <Form onSubmit={handleFormSubmit} />
-      </Modal>
+      {closeForm && <Form onSubmit={handleFormSubmit} />}
 
       {characterData && (
         <div className="App">

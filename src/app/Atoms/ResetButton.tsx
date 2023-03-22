@@ -4,13 +4,15 @@ import styled from "styled-components";
 interface ButtonProps {}
 
 const StyledButton = styled.button`
-  background-color: #f5f5f5;
-  border: 1px solid #f5f5f5;
-  border-radius: 5px;
+  background-color: grey;
+  color: white;
+  border: 1px solid white;
+  border-radius: 3px;
   padding: 5px;
   margin: 5px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  width: 80px;
 
   &:hover {
     background-color: #e0e0e0;
