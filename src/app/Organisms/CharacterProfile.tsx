@@ -20,13 +20,11 @@ export const CharacterProfile = ({ token, realm, name }: MyCharacterProps) => {
 
   return (
     <div>
-      {character ? (
+      {character && (
         <>
           <h1>{character.name}</h1>
           <h1>{character.equipped_item_level}</h1>
         </>
-      ) : (
-        <p>Loading...</p>
       )}
     </div>
   );

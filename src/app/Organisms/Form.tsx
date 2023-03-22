@@ -27,7 +27,7 @@ interface SubmitProps {
   onSubmit: SubmitHandler<FormInputProps>;
 }
 
-export const Form = ({ onSubmit }: SubmitProps) => {
+const Form = ({ onSubmit }: SubmitProps) => {
   const {
     register,
     handleSubmit,
@@ -62,3 +62,5 @@ export const Form = ({ onSubmit }: SubmitProps) => {
     </div>
   );
 };
+
+export default Form;

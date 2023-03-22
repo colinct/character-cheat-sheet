@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { CharacterProfile } from "./app/Organisms/CharacterProfile";
 import { getBattleNetAccessToken } from "./app/apiCalls";
 // import { CharacterPortrait } from "./app/CharacterPortrait";
-import { Form } from "./app/Organisms/Form";
+import Form from "./app/Organisms/Form";
+import Modal from "./app/Molecules/Modal";
 
 function App() {
   const [token, setToken] = useState("");
+  const [open, setOpen] = useState(true);
   const [characterData, setCharacterData] = useState({
     name: "",
     realm: "",
@@ -35,7 +37,8 @@ function App() {
 
   return (
     <>
-      <Form onSubmit={handleFormSubmit} />
+      <Modal children={<Form onSubmit={handleFormSubmit} />}></Modal>
+
       {characterData && (
         <div className="App">
           <CharacterProfile
