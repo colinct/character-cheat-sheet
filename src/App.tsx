@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CharacterProfile } from "./app/Organisms/CharacterProfile";
 import { getBattleNetAccessToken } from "./app/apiCalls";
-// import { CharacterPortrait } from "./app/CharacterPortrait";
 import Form from "./app/Organisms/Form";
 
 function App() {
@@ -46,7 +45,6 @@ function App() {
             name={characterData.name}
             realm={characterData.realm}
           />
-          {/* <CharacterPortrait token={token} characterName={characterName} realm={realm} /> */}
         </div>
       )}
     </div>

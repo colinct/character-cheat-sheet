@@ -1,21 +1,24 @@
-export async function getCharacterPortrait(token: string, characterName: string, realm: string) {
-  const apiEndpoint = `https://us.api.blizzard.com/wow/character/${realm}/${characterName}?fields=thumbnail&locale=en_US&access_token=${token}`;
+export async function getCharacterProfile(
+  token: string,
+  characterName: string,
+  realm: string
+) {
+  const tokenEndpoint = `https://us.api.blizzard.com/profile/wow/character/${realm}/${characterName}?namespace=profile-us&locale=en_US&access_token=${token}`;
   const headers = {
     Authorization: `Bearer ${token}`,
   };
 
   try {
-    const response = await fetch(apiEndpoint, {
+    const response = await fetch(tokenEndpoint, {
       method: "GET",
       headers: headers,
     });
 
     if (response.ok) {
       const data = await response.json();
-      const thumbnailUrl = data.thumbnail;
-      return thumbnailUrl;
+      return data;
     } else {
-      throw new Error("Failed to fetch character portrait from World of Warcraft API");
+      throw new Error("Failed to fetch Battle.net access token");
     }
   } catch (error) {
     console.error(error);
@@ -23,14 +26,12 @@ export async function getCharacterPortrait(token: string, characterName: string,
   }
 }
 
-
-
-export async function getCharacterProfile(
+export async function getCharacterEquipment(
   token: string,
-  characterName: string,
+  name: string,
   realm: string
 ) {
-  const tokenEndpoint = `https://us.api.blizzard.com/profile/wow/character/${realm}/${characterName}?namespace=profile-us&locale=en_US&access_token=${token}`;
+  const tokenEndpoint = `https://us.api.blizzard.com/profile/wow/character/${realm}/${name}/appearance?namespace=profile-us&locale=en_US&access_token=${token}`;
   const headers = {
     Authorization: `Bearer ${token}`,
   };

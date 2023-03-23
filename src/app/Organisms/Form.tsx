@@ -1,3 +1,4 @@
+import { off } from "process";
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import styled from "styled-components";
@@ -92,7 +93,7 @@ const Form = ({ onSubmit }: SubmitProps) => {
 
   return (
     <div className="form">
-      <StyledForm onSubmit={handleSubmit(onSubmitHandler)}>
+      <StyledForm onSubmit={handleSubmit(onSubmitHandler)} autoComplete="off">
         <StyledHeader>Search Your Character</StyledHeader>
         <Input
           {...register("characterName", {
