@@ -1,10 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-interface ButtonProps {}
-
 const StyledButton = styled.button`
-  background-color: grey;
+  background-color: #999999;
   color: white;
   border: 1px solid white;
   border-radius: 3px;

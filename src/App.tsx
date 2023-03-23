@@ -6,7 +6,7 @@ import Form from "./app/Organisms/Form";
 
 function App() {
   const [token, setToken] = useState("");
-  const [closeForm, setCloseForm] = useState(true);
+  const [formOpen, setFormOpen] = useState(true);
   const [characterData, setCharacterData] = useState({
     name: "",
     realm: "",
@@ -32,12 +32,12 @@ function App() {
       name: lowercaseName,
       realm: correctedRealm,
     });
-    setCloseForm(false);
+    setFormOpen(false);
   };
 
   return (
     <div>
-      {closeForm && <Form onSubmit={handleFormSubmit} />}
+      {formOpen && <Form onSubmit={handleFormSubmit} />}
 
       {characterData && (
         <div className="App">

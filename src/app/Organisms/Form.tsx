@@ -12,24 +12,26 @@ const StyledForm = styled.form`
   transform: translate(-50%, -50%);
   flex-direction: column;
   border-radius: 5px;
-  background-color: grey;
+  background-color: #999999;
   width: 350px;
   padding: 10px;
+  font-family: "Roboto", sans-serif;
 
-  &: hover {
+  &:focus {
     caret-color: white;
   }
 `;
 
 const StyledHeader = styled.h1`
   color: white;
-  font-size: 2rem;
-  font-weight: 500;
+  font-size: 1.5rem;
+  font-weight: 550;
+  user-select: none;
 `;
 
 const InputRow = styled.div`
   display: flex;
-  justify-content: flex;
+  justify-content: space-between;
 `;
 
 const Input = styled.input`
@@ -37,11 +39,10 @@ const Input = styled.input`
   border-radius: 3px;
   padding: 5px;
   margin: 5px;
-  background-color: grey;
+  background-color: transparent;
   color: white;
-  width: 100%;
-  max-width: 93.5%;
-  z-index: -1;
+  width: 93.5%;
+  height: 30px;
 
   ::placeholder {
     color: white;
@@ -61,6 +62,7 @@ const Buttons = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
+  user-select: none;
 `;
 
 interface FormInputProps {
