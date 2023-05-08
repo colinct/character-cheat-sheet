@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Equipment,
-  getBattleNetAccessToken,
-  getCharacterEquipment,
-} from "../apiCalls";
+import { getCharacterEquipment, getBattleNetAccessToken } from "../apiCalls";
 
 interface EquipmentProps {
   token: string;
@@ -13,11 +9,13 @@ interface EquipmentProps {
 
 const CharacterEquipment = ({ token, realm, name }: EquipmentProps) => {
   const [accessToken, setAccessToken] = useState<string>("");
-  const [equipment, setEquipment] = useState<Equipment[]>([]);
+  const [equipment, setEquipment] = useState([]);
+  const clientId = "a8b4dd9aff4b4f9f8d75df3fa3dbbb13";
+  const clientSecret = "nt0JbHAykC2GsOTsjgbvAOCPcdmP6cSS";
 
   useEffect(() => {
     const fetchAccessToken = async () => {
-      const token = await getBattleNetAccessToken();
+      const token = await getBattleNetAccessToken(clientId, clientSecret);
       setAccessToken(token);
     };
     console.log({ token });
